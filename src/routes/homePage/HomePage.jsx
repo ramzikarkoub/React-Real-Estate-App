@@ -12,7 +12,7 @@ export default function HomePage() {
   // console.log(posts);
   return (
     <div className="home-main">
-      <h1>Explore Properties</h1>
+      <h1>Explore All Properties</h1>
       {loading && <p>Loading...</p>}
       {message && <p>{message}</p>}
       <div className="posts-container">

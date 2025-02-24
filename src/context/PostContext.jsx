@@ -17,7 +17,8 @@ export const PostProvider = ({ children }) => {
         `http://localhost:4000/api/posts?${params}`
       );
       console.log(response.data);
-      if (response.data) {
+      // Ensure posts is always an array
+      if (Array.isArray(response.data)) {
         setPosts(response.data);
         setMessage("");
       } else {

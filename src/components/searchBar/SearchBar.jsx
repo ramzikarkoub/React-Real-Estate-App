@@ -1,10 +1,15 @@
 import React, { useState } from "react";
+import { useLocation } from "react-router-dom";
 import "./SearchBar.css";
 
 export default function SearchBar({ onSearch }) {
+  const location = useLocation();
+  const isRentPage = location.pathname.includes("/rent");
+  const isBuyPage = location.pathname.includes("/buy");
+
   const [filters, setFilters] = useState({
     location: "",
-    type: "rent",
+    type: isRentPage ? "rent" : isBuyPage ? "buy" : "any",
     property: "any",
     minPrice: "",
     maxPrice: "",
@@ -34,13 +39,17 @@ export default function SearchBar({ onSearch }) {
         />
       </div>
 
-      <div className="search-field">
-        <label htmlFor="type">Type</label>
-        <select id="type" value={filters.type} onChange={handleChange}>
-          <option value="rent">Rent</option>
-          <option value="buy">Buy</option>
-        </select>
-      </div>
+      {/* Conditionally show the Type select button only if not on Rent or Buy pages */}
+      {!isRentPage && !isBuyPage && (
+        <div className="search-field">
+          <label htmlFor="type">Type</label>
+          <select id="type" value={filters.type} onChange={handleChange}>
+            <option value="any">Any</option>
+            <option value="rent">Rent</option>
+            <option value="buy">Buy</option>
+          </select>
+        </div>
+      )}
 
       <div className="search-field">
         <label htmlFor="property">Property</label>
