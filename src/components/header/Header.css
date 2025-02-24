@@ -1,7 +1,8 @@
-a img {
+img {
   width: 70px;
   margin-bottom: -15px;
 }
+
 nav {
   border: 2px red solid;
   display: flex;
@@ -17,4 +18,5 @@ nav {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 0;
 }

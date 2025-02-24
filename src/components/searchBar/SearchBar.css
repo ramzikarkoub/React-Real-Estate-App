@@ -1,0 +1,10 @@
+.main-container {
+  flex: 1;
+  background-color: #007bff;
+  color: white;
+  border-radius: 8px;
+  padding: 20px;
+  height: fit-content;
+  position: sticky;
+  top: 20px;
+}

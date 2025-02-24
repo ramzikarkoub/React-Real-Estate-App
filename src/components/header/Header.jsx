@@ -9,7 +9,7 @@ export default function Header() {
         <Link to="/" className="logo">
           <img src="/public/logo.svg" alt="" />
         </Link>
-        <Link to="/">
+        <Link to="/" className="site-name">
           <span>Ramzillow</span>
         </Link>
       </div>
