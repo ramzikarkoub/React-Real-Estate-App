@@ -1,10 +1,11 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState } from "react";
 import axios from "axios";
 
 const PostContext = createContext();
 
 export const PostProvider = ({ children }) => {
   const [posts, setPosts] = useState([]);
+  const [post, setPost] = useState(null); // Single post state
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
 
@@ -12,12 +13,9 @@ export const PostProvider = ({ children }) => {
     setLoading(true);
     try {
       const params = new URLSearchParams(filters).toString();
-      console.log(params);
       const response = await axios.get(
         `http://localhost:4000/api/posts?${params}`
       );
-      console.log(response.data);
-      // Ensure posts is always an array
       if (Array.isArray(response.data)) {
         setPosts(response.data);
         setMessage("");
@@ -34,8 +32,25 @@ export const PostProvider = ({ children }) => {
     }
   };
 
+  const fetchPostById = async (id) => {
+    setLoading(true);
+    try {
+      const response = await axios.get(`http://localhost:4000/api/posts/${id}`);
+      setPost(response.data);
+      setMessage("");
+    } catch (error) {
+      console.error("Error fetching post:", error);
+      setMessage("Failed to fetch post. Please try again.");
+      setPost(null);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-    <PostContext.Provider value={{ posts, loading, message, fetchPosts }}>
+    <PostContext.Provider
+      value={{ posts, post, loading, message, fetchPosts, fetchPostById }}
+    >
       {children}
     </PostContext.Provider>
   );

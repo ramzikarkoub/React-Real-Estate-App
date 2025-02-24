@@ -1,0 +1,82 @@
+/* SinglePostPage.css */
+.single-post {
+  width: 80%;
+  margin: 40px auto;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.single-post h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+  text-align: left;
+}
+
+.post-images {
+  display: flex;
+  gap: 15px;
+  justify-content: flex-start;
+  margin-bottom: 30px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.post-images img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  margin-bottom: 0;
+}
+
+.post-images img:hover {
+  transform: scale(1.05);
+}
+
+.single-post p {
+  font-size: 1.1rem;
+  margin: 12px 0;
+  color: #555;
+  text-align: left;
+  line-height: 1.6;
+}
+
+.single-post strong {
+  font-weight: 600;
+  color: #333;
+}
+
+/* Features Section */
+.post-features {
+  display: flex;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.post-feature {
+  font-size: 1.2rem;
+  color: #444;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .single-post {
+    width: 95%;
+  }
+
+  .post-images img {
+    width: 100%;
+    height: auto;
+  }
+
+  .post-features {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
