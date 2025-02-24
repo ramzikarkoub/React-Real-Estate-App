@@ -2,7 +2,6 @@
   display: flex;
   align-items: center;
   width: 100%;
-  border: 1px solid #ddd;
   border-radius: 12px;
   overflow: hidden;
   background-color: white;
@@ -12,11 +11,12 @@
 }
 
 .post-item:hover {
-  transform: translateY(-5px);
+  transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .post-image {
+  flex: 3;
   width: 300px;
   height: 200px;
   object-fit: cover;
@@ -24,7 +24,7 @@
 }
 
 .post-details {
-  flex: 1;
+  flex: 4;
   padding: 20px;
 }
 
