@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./PostForm.css";
+import env from "react-dotenv";
 
 export default function PostForm({ onSubmit, initialData, onClose }) {
   const [formData, setFormData] = useState({
@@ -49,13 +50,10 @@ export default function PostForm({ onSubmit, initialData, onClose }) {
         uploadData.append("file", file);
         uploadData.append("upload_preset", "real_estate");
 
-        const response = await fetch(
-          "https://api.cloudinary.com/v1_1/dkyzsx1az/image/upload",
-          {
-            method: "POST",
-            body: uploadData,
-          }
-        );
+        const response = await fetch(process.env.CLOUDINARY_URL, {
+          method: "POST",
+          body: uploadData,
+        });
 
         const data = await response.json();
         return data.secure_url;
