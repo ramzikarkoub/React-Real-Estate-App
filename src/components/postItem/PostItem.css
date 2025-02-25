@@ -54,15 +54,23 @@
 
 .post-image {
   flex: 1;
-  min-width: 320px;
   min-height: 240px;
   object-fit: cover;
   border-right: 1px solid #ddd;
 }
 
+.post-item-link {
+  width: 40%;
+  display: block;
+  /* height: auto; */
+}
+
 .post-details {
-  flex: 2;
+  width: 60%;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .post-title {
@@ -85,6 +93,7 @@
   padding: 8px 12px;
   border-radius: 8px;
   display: inline-block;
+  width: fit-content;
   margin-bottom: 12px;
 }
 
@@ -143,10 +152,18 @@
     flex-direction: column;
   }
 
+  .post-item-link {
+    width: 100%;
+  }
+
   .post-image {
-    /* width: 100%; */
-    /* height: 200px; */
+    width: 100%;
+    height: 200px;
     border-right: none;
     border-bottom: 1px solid #ddd;
+  }
+
+  .post-details {
+    width: 100%;
   }
 }

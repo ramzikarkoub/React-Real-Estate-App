@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import "./PostForm.css";
 
 export default function PostForm({ onSubmit, initialData, onClose }) {
-  console.log(initialData);
   const [formData, setFormData] = useState({
     title: "",
     price: "",
@@ -20,15 +19,15 @@ export default function PostForm({ onSubmit, initialData, onClose }) {
       size: "",
     },
   });
-  console.log(formData);
+
+  //  Prevent infinite re-renders by checking for valid initialData
   useEffect(() => {
-    if (initialData) {
+    if (initialData && Object.keys(initialData).length > 0) {
       setFormData(initialData);
     }
   }, [initialData]);
 
   const handleChange = (e) => {
-    e.preventDefault();
     const { name, value } = e.target;
     if (name in formData.postDetail) {
       setFormData((prev) => ({
@@ -46,15 +45,15 @@ export default function PostForm({ onSubmit, initialData, onClose }) {
 
     const uploadedUrls = await Promise.all(
       files.map(async (file) => {
-        const formData = new FormData();
-        formData.append("file", file);
-        formData.append("upload_preset", "real_estate");
+        const uploadData = new FormData();
+        uploadData.append("file", file);
+        uploadData.append("upload_preset", "real_estate");
 
         const response = await fetch(
           "https://api.cloudinary.com/v1_1/dkyzsx1az/image/upload",
           {
             method: "POST",
-            body: formData,
+            body: uploadData,
           }
         );
 
@@ -69,7 +68,7 @@ export default function PostForm({ onSubmit, initialData, onClose }) {
     }));
   };
 
-  // Handle image deletion from the form (frontend only)
+  // Handle image deletion from the form
   const handleImageDelete = (index) => {
     setFormData((prev) => ({
       ...prev,
@@ -79,12 +78,10 @@ export default function PostForm({ onSubmit, initialData, onClose }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Ensure image URLs are included
     const payload = {
       ...formData,
-      imageUrls: formData.images, // Send Cloudinary URLs in 'imageUrls'
+      imageUrls: formData.images,
     };
-
     onSubmit(payload);
   };
 
@@ -97,7 +94,7 @@ export default function PostForm({ onSubmit, initialData, onClose }) {
           <input
             type="text"
             name="title"
-            value={formData.title}
+            value={formData.title || ""}
             onChange={handleChange}
             required
           />
@@ -108,7 +105,7 @@ export default function PostForm({ onSubmit, initialData, onClose }) {
           <input
             type="number"
             name="price"
-            value={formData.price}
+            value={formData.price || ""}
             onChange={handleChange}
             required
           />
@@ -119,7 +116,7 @@ export default function PostForm({ onSubmit, initialData, onClose }) {
           <input
             type="text"
             name="address"
-            value={formData.address}
+            value={formData.address || ""}
             onChange={handleChange}
             required
           />
@@ -130,7 +127,7 @@ export default function PostForm({ onSubmit, initialData, onClose }) {
           <input
             type="text"
             name="city"
-            value={formData.city}
+            value={formData.city || ""}
             onChange={handleChange}
             required
           />
@@ -141,7 +138,7 @@ export default function PostForm({ onSubmit, initialData, onClose }) {
           <input
             type="number"
             name="bedroom"
-            value={formData.bedroom}
+            value={formData.bedroom || ""}
             onChange={handleChange}
             required
           />
@@ -152,7 +149,7 @@ export default function PostForm({ onSubmit, initialData, onClose }) {
           <input
             type="number"
             name="bathroom"
-            value={formData.bathroom}
+            value={formData.bathroom || ""}
             onChange={handleChange}
             required
           />
@@ -162,7 +159,7 @@ export default function PostForm({ onSubmit, initialData, onClose }) {
           <label>Description</label>
           <textarea
             name="desc"
-            value={formData.postDetail.desc}
+            value={formData.postDetail.desc || ""}
             onChange={handleChange}
             required
           />
@@ -188,7 +185,7 @@ export default function PostForm({ onSubmit, initialData, onClose }) {
           <input
             type="text"
             name="utilities"
-            value={formData.postDetail.utilities}
+            value={formData.postDetail.utilities || ""}
             onChange={handleChange}
           />
         </div>
@@ -198,7 +195,7 @@ export default function PostForm({ onSubmit, initialData, onClose }) {
           <input
             type="text"
             name="pet"
-            value={formData.postDetail.pet}
+            value={formData.postDetail.pet || ""}
             onChange={handleChange}
           />
         </div>
@@ -208,7 +205,7 @@ export default function PostForm({ onSubmit, initialData, onClose }) {
           <input
             type="number"
             name="size"
-            value={formData.postDetail.size}
+            value={formData.postDetail.size || ""}
             onChange={handleChange}
           />
         </div>

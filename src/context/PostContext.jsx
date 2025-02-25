@@ -1,7 +1,7 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 // import axios from "axios";
 import apiRequest from "../api/apiRequest";
-
+import UserContext from "../context/UserContext";
 const PostContext = createContext();
 
 export const PostProvider = ({ children }) => {
@@ -9,7 +9,7 @@ export const PostProvider = ({ children }) => {
   const [post, setPost] = useState(null); // Single post state
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
-
+  const { checkUserLoggedIn } = useContext(UserContext);
   const fetchPosts = async (filters = {}) => {
     setLoading(true);
     try {

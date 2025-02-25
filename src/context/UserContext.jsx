@@ -7,18 +7,22 @@ export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [message, setMessage] = useState("");
   const [userPosts, setUserPosts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const checkUserLoggedIn = async () => {
     try {
+      setIsLoading(true); //
       const response = await apiRequest.get("/auth/me");
       setUser(response.data);
     } catch (error) {
       setUser(null);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   useEffect(() => {
-    checkUserLoggedIn(); // Persist user on reload
+    checkUserLoggedIn();
   }, []);
 
   const login = async (formData, navigate) => {
@@ -68,6 +72,7 @@ export const UserProvider = ({ children }) => {
     <UserContext.Provider
       value={{
         user,
+        isLoading,
         login,
         register,
         logout,
