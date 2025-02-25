@@ -28,6 +28,7 @@ export default function PostForm({ onSubmit, initialData, onClose }) {
   }, [initialData]);
 
   const handleChange = (e) => {
+    e.preventDefault();
     const { name, value } = e.target;
     if (name in formData.postDetail) {
       setFormData((prev) => ({
@@ -77,8 +78,7 @@ export default function PostForm({ onSubmit, initialData, onClose }) {
   };
 
   const handleSubmit = (e) => {
-    // e.preventDefault();
-    // onSubmit(formData);
+    e.preventDefault();
     // Ensure image URLs are included
     const payload = {
       ...formData,

@@ -33,14 +33,14 @@ export default function Dashboard() {
     } else {
       await addPost(formData);
     }
-    fetchUserPosts();
+    await fetchUserPosts(); // ✅ Refresh posts after add or update
     setShowForm(false);
   };
 
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this post?")) {
       await deletePost(id);
-      fetchUserPosts();
+      await fetchUserPosts(); // ✅ Refresh posts after delete
     }
   };
 
