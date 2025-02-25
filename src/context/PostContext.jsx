@@ -49,7 +49,14 @@ export const PostProvider = ({ children }) => {
 
   return (
     <PostContext.Provider
-      value={{ posts, post, loading, message, fetchPosts, fetchPostById }}
+      value={{
+        posts,
+        post,
+        loading,
+        message,
+        fetchPosts,
+        fetchPostById,
+      }}
     >
       {children}
     </PostContext.Provider>

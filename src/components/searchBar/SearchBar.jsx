@@ -39,7 +39,6 @@ export default function SearchBar({ onSearch }) {
         />
       </div>
 
-      {/* Conditionally show the Type select button only if not on Rent or Buy pages */}
       {!isRentPage && !isBuyPage && (
         <div className="search-field">
           <label htmlFor="type">Type</label>

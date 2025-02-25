@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./PostItem.css";
-import { FaBed, FaBath, FaRegBookmark, FaRegCommentDots } from "react-icons/fa";
+import { FaBed, FaBath } from "react-icons/fa";
 
 export default function PostItem({ post }) {
   return (

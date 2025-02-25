@@ -9,7 +9,6 @@ export default function HomePage() {
   useEffect(() => {
     fetchPosts(); // Display all posts on page load
   }, []);
-  // console.log(posts);
   return (
     <div className="home-main">
       <h1>Explore All Properties</h1>

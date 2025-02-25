@@ -7,6 +7,8 @@ import RentPage from "./routes/rentPage/RentPage";
 import SinglePost from "./routes/singlePost/SinglePost";
 import LoginPage from "./routes/login/Login";
 import Register from "./routes/register/Register";
+import ProtectedRoute from "./api/ProtectedRoute";
+import Dashboard from "./routes/dashboard/Dashboard";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +21,14 @@ const router = createBrowserRouter([
       { path: ":id", element: <SinglePost /> },
       { path: "login", element: <LoginPage /> },
       { path: "register", element: <Register /> },
+      {
+        path: "dashboard",
+        element: (
+          <ProtectedRoute>
+            <Dashboard />
+          </ProtectedRoute>
+        ),
+      },
     ],
   },
 ]);
