@@ -5,7 +5,6 @@ import UserContext from "../../context/UserContext";
 
 export default function Header() {
   const { logout, user } = useContext(UserContext);
-  console.log(user);
   return (
     <nav>
       <div className="left">
@@ -30,6 +29,7 @@ export default function Header() {
             <Link to="/dashboard">Dashboard</Link>
             <div className="logout">
               <p to="/dashboard">
+                Welcome{" "}
                 {user.username.charAt(0).toUpperCase() + user.username.slice(1)}
               </p>
               <Link onClick={logout} className="logout-button">

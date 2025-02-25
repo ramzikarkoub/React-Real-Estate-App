@@ -4,7 +4,9 @@ import UserContext from "../context/UserContext";
 
 const ProtectedRoute = ({ children }) => {
   const { user } = useContext(UserContext);
-  return user ? children : <Navigate to="/login" />;
+
+  // Redirect to login if user is not authenticated
+  return user ? children : <Navigate to="/login" replace />;
 };
 
 export default ProtectedRoute;

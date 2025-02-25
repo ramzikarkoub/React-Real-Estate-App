@@ -1,5 +1,6 @@
 import React, { createContext, useState } from "react";
-import axios from "axios";
+// import axios from "axios";
+import apiRequest from "../api/apiRequest";
 
 const PostContext = createContext();
 
@@ -13,7 +14,7 @@ export const PostProvider = ({ children }) => {
     setLoading(true);
     try {
       const params = new URLSearchParams(filters).toString();
-      const response = await axios.get(
+      const response = await apiRequest.get(
         `http://localhost:4000/api/posts?${params}`
       );
       if (Array.isArray(response.data)) {
@@ -35,7 +36,9 @@ export const PostProvider = ({ children }) => {
   const fetchPostById = async (id) => {
     setLoading(true);
     try {
-      const response = await axios.get(`http://localhost:4000/api/posts/${id}`);
+      const response = await apiRequest.get(
+        `http://localhost:4000/api/posts/${id}`
+      );
       setPost(response.data);
       setMessage("");
     } catch (error) {
@@ -44,6 +47,32 @@ export const PostProvider = ({ children }) => {
       setPost(null);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const addPost = async (formData) => {
+    try {
+      await apiRequest.post("/posts", formData);
+      checkUserLoggedIn(); // Refresh user state
+    } catch (error) {
+      console.error("Error adding post:", error);
+    }
+  };
+
+  const updatePost = async (id, formData) => {
+    try {
+      await apiRequest.put(`/posts/${id}`, formData);
+      checkUserLoggedIn(); // Refresh user state
+    } catch (error) {
+      console.error("Error updating post:", error);
+    }
+  };
+
+  const deletePost = async (id) => {
+    try {
+      await apiRequest.delete(`/posts/${id}`);
+    } catch (error) {
+      console.error("Error deleting post:", error);
     }
   };
 
@@ -56,6 +85,9 @@ export const PostProvider = ({ children }) => {
         message,
         fetchPosts,
         fetchPostById,
+        addPost,
+        updatePost,
+        deletePost,
       }}
     >
       {children}

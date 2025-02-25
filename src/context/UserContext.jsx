@@ -1,42 +1,32 @@
-import React, { createContext, useState } from "react";
-import axios from "axios";
+import React, { createContext, useEffect, useState } from "react";
+import apiRequest from "../api/apiRequest";
 
 const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [message, setMessage] = useState("");
-  const [userPosts, setUserPosts] = useState([]); // State for user posts
+  const [userPosts, setUserPosts] = useState([]);
 
-  // Function to fetch user posts
-  const fetchUserPosts = async () => {
+  const checkUserLoggedIn = async () => {
     try {
-      const response = await axios.get("http://localhost:4000/api/posts/user", {
-        withCredentials: true,
-      });
-      setUserPosts(response.data || []);
+      const response = await apiRequest.get("/auth/me");
+      setUser(response.data);
     } catch (error) {
-      console.error(
-        "💥 Error fetching user posts:",
-        error.message,
-        error.stack
-      );
-      setUserPosts([]);
+      setUser(null);
     }
   };
 
+  useEffect(() => {
+    checkUserLoggedIn(); // Persist user on reload
+  }, []);
+
   const login = async (formData, navigate) => {
     try {
-      const response = await axios.post(
-        "http://localhost:4000/api/auth/login",
-        formData,
-        {
-          withCredentials: true,
-        }
-      );
+      const response = await apiRequest.post("/auth/login", formData);
       setUser(response.data);
       setMessage("");
-      await fetchUserPosts(); // Fetch posts after login
+      await fetchUserPosts();
       navigate("/dashboard");
     } catch (error) {
       setMessage(error.response?.data?.message || "Login failed");
@@ -45,17 +35,11 @@ export const UserProvider = ({ children }) => {
 
   const register = async (formData, navigate) => {
     try {
-      const response = await axios.post(
-        "http://localhost:4000/api/auth/register",
-        formData,
-        {
-          withCredentials: true,
-        }
-      );
-      setUser(response.data.user); // Set user after registration
+      const response = await apiRequest.post("/auth/register", formData);
+      setUser(response.data.user);
       setMessage("");
-      await fetchUserPosts(); // Fetch posts immediately after registration
-      navigate("/dashboard"); // Navigate to Dashboard
+      await fetchUserPosts();
+      navigate("/dashboard");
     } catch (error) {
       setMessage(error.response?.data?.message || "Registration failed");
     }
@@ -63,15 +47,20 @@ export const UserProvider = ({ children }) => {
 
   const logout = async () => {
     try {
-      await axios.post(
-        "http://localhost:4000/api/auth/logout",
-        {},
-        { withCredentials: true }
-      );
+      await apiRequest.post("/auth/logout");
       setUser(null);
-      setUserPosts([]); // Clear user posts on logout
+      setUserPosts([]);
     } catch (error) {
       console.error("Logout failed", error);
+    }
+  };
+
+  const fetchUserPosts = async () => {
+    try {
+      const response = await apiRequest.get("/posts/user");
+      setUserPosts(response.data || []);
+    } catch (error) {
+      setUserPosts([]);
     }
   };
 
@@ -85,6 +74,7 @@ export const UserProvider = ({ children }) => {
         message,
         userPosts,
         fetchUserPosts,
+        checkUserLoggedIn,
       }}
     >
       {children}
