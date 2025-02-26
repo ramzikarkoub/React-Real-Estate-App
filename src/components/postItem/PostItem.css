@@ -53,16 +53,18 @@
 }
 
 .post-image {
-  flex: 1;
+  /* flex: 1; */
   min-height: 240px;
   object-fit: cover;
   border-right: 1px solid #ddd;
+  /* border-radius: 12px; */
 }
 
 .post-item-link {
   width: 40%;
   display: block;
   /* height: auto; */
+  max-height: 240px;
 }
 
 .post-details {

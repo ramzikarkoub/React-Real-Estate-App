@@ -50,7 +50,7 @@ export default function PostForm({ onSubmit, initialData, onClose }) {
         uploadData.append("file", file);
         uploadData.append("upload_preset", "real_estate");
 
-        const response = await fetch(process.env.CLOUDINARY_URL, {
+        const response = await fetch(import.meta.env.VITE_CLOUDINARY_URL, {
           method: "POST",
           body: uploadData,
         });
@@ -169,8 +169,12 @@ export default function PostForm({ onSubmit, initialData, onClose }) {
           <div className="image-preview">
             {formData.images.map((url, index) => (
               <div key={index} className="image-item">
-                <img src={url} alt={`Upload ${index}`} />
-                <button type="button" onClick={() => handleImageDelete(index)}>
+                <img src={url} alt={`Upload ${index}`} className="small-img" />
+                <button
+                  type="button"
+                  className="exit-btn"
+                  onClick={() => handleImageDelete(index)}
+                >
                   X
                 </button>
               </div>
