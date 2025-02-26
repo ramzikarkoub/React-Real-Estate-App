@@ -60,14 +60,6 @@ Ramzillow is a **full-stack real estate platform** where users can **search for 
 - **Inspiration:** Modern real estate platforms like Zillow and Redfin.
 - **Design:** Clean and professional, using **Poppins font** for typography and a **blue, gray, and gold color palette**.
 
-### Wireframes:
-
-<img src="path_to_wireframe.png" alt="Wireframe of Ramzillow"/>
-
-### Trello Planning:
-
-- [Trello Board](https://trello.com/b/example_project_board)
-
 ## <a name="erd"></a>ERD & Database Structure
 
 **Entity Relationship Diagram (ERD)**
@@ -75,7 +67,7 @@ Ramzillow is a **full-stack real estate platform** where users can **search for 
 - The **User** model stores account details and references property listings.
 - The **Post** model stores property details with indexes for fast querying.
 
-<img src="path_to_erd.png" alt="ERD Diagram for Ramzillow"/>
+<img src="./src/assets/diagram.png" alt="ERD Diagram for Ramzillow"/>
 
 ## <a name="nextsteps"></a>Project Next Steps
 
