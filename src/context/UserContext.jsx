@@ -59,9 +59,10 @@ export const UserProvider = ({ children }) => {
     }
   };
 
-  const fetchUserPosts = async () => {
+  const fetchUserPosts = async (filters = {}) => {
     try {
-      const response = await apiRequest.get("/posts/user");
+      const params = new URLSearchParams(filters).toString();
+      const response = await apiRequest.get(`/posts/user?${params}`);
       setUserPosts(response.data || []);
     } catch (error) {
       setUserPosts([]);

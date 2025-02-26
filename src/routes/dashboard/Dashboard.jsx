@@ -4,18 +4,23 @@ import PostContext from "../../context/PostContext";
 import PostItem from "../../components/postItem/PostItem";
 import Modal from "../../components/Modal/Modal";
 import PostForm from "../../components/postForm/PostForm";
+import SearchBar from "../../components/searchBar/SearchBar";
 import "./Dashboard.css";
 
 export default function Dashboard() {
   const { user, userPosts, fetchUserPosts } = useContext(UserContext);
   const { addPost, updatePost, deletePost } = useContext(PostContext);
-
   const [showForm, setShowForm] = useState(false);
   const [editData, setEditData] = useState(null);
 
   useEffect(() => {
     fetchUserPosts();
   }, []);
+
+  // Handle search with filters
+  // const handleSearch = async (filters) => {
+  //   await fetchUserPosts(filters);
+  // };
 
   const handleAdd = () => {
     setEditData(null);
@@ -33,21 +38,24 @@ export default function Dashboard() {
     } else {
       await addPost(formData);
     }
-    await fetchUserPosts(); // ✅ Refresh posts after add or update
+    await fetchUserPosts(); // Refresh posts after add or update
     setShowForm(false);
   };
 
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this post?")) {
       await deletePost(id);
-      await fetchUserPosts(); // ✅ Refresh posts after delete
+      await fetchUserPosts(); // Refresh posts after delete
     }
   };
 
   return (
     <div className="dashboard">
       <div className="listing-header">
-        <h1>{user?.username}'s Listings</h1>
+        <h1>
+          {user?.username.charAt(0).toUpperCase() + user.username.slice(1)}'s
+          Listings
+        </h1>
         <button className="button-edit" onClick={handleAdd}>
           Add Listing
         </button>
@@ -64,6 +72,7 @@ export default function Dashboard() {
       )}
 
       <div className="posts-container">
+        {!userPosts && <p>Loading...</p>}
         {Array.isArray(userPosts) && userPosts.length > 0 ? (
           userPosts.map((post) => (
             <PostItem
@@ -74,7 +83,7 @@ export default function Dashboard() {
             />
           ))
         ) : (
-          <p>You have no posts yet.</p>
+          <p>No listing...</p>
         )}
       </div>
     </div>
