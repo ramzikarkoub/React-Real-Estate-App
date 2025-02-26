@@ -2,9 +2,9 @@
 
 #### A modern real estate platform where users can browse, buy, sell, and rent properties.
 
-<img src="path_to_your_screenshot.png" alt="Screenshot of Ramzillow"/>
+<img src="./public/Screenshot1.png" alt="Screenshot of Ramzillow"/>
 
-<img src="path_to_your_demo_video.gif" style="width:100vw; height:100vh" alt="Ramzillow Demo Video"/>
+<img src="./public/Screenshot2.png" alt="Screenshot of Ramzillow"/>
 
 ## Description
 
