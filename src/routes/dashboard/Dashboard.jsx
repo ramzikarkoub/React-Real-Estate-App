@@ -56,8 +56,8 @@ export default function Dashboard() {
           {user?.username.charAt(0).toUpperCase() + user.username.slice(1)}'s
           Listings
         </h1>
-        <button className="button-edit" onClick={handleAdd}>
-          Add Listing
+        <button className="button-add" onClick={handleAdd}>
+          + Add Listing
         </button>
       </div>
 

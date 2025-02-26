@@ -25,7 +25,9 @@ export default function PostItem({ post, onEdit, onDelete }) {
         <h3 className="post-title">{post.title}</h3>
         <p className="post-address">📍 {post.address}</p>
 
-        <div className="post-price">$ {post.price.toLocaleString()}</div>
+        <div className="post-price">
+          <p className="price-txt">$ {post.price.toLocaleString()}</p>
+        </div>
 
         <div className="post-features">
           <span className="feature">

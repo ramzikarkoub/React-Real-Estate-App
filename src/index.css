@@ -6,3 +6,34 @@
 body {
   font-family: "Poppins", sans-serif;
 }
+/* :root {
+  --primary-color: #1d3557;
+  --accent-color: #e9c46a;
+  --background-color: #f1faee;
+  --secondary-background: #fae3d9;
+  --text-color: #2c3e50;
+  --link-color: #457b9d;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.navbar {
+  background-color: var(--primary-color);
+}
+
+button {
+  background-color: var(--accent-color);
+  color: var(--text-color);
+}
+
+a {
+  color: var(--link-color);
+}
+
+.card {
+  background-color: var(--secondary-background);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+} */

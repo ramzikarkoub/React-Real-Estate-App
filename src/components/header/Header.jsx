@@ -65,12 +65,12 @@ export default function Header() {
         )}
       </div>
 
-      {/* ✅ Hamburger Menu Toggle */}
+      {/*  Hamburger Menu Toggle */}
       <div className="hamburger" onClick={toggleMenu}>
         {showMenu ? <FaTimes /> : <FaBars />}
       </div>
 
-      {/* ✅ Mobile Menu */}
+      {/*  Mobile Menu */}
       <div className={`mobile-menu ${showMenu ? "active" : ""}`}>
         <Link className="link-style" to="/" onClick={closeMenu}>
           Home
