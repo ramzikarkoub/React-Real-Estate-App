@@ -132,6 +132,34 @@ export default function PostForm({ onSubmit, initialData, onClose }) {
         </div>
 
         <div className="form-field">
+          <label>Type</label>
+          <select
+            name="type"
+            value={formData.type}
+            onChange={handleChange}
+            required
+          >
+            <option value="rent">Rent</option>
+            <option value="buy">Buy</option>
+          </select>
+        </div>
+
+        <div className="form-field">
+          <label>Property</label>
+          <select
+            name="property"
+            value={formData.property}
+            onChange={handleChange}
+            required
+          >
+            <option value="apartment">Apartment</option>
+            <option value="house">House</option>
+            <option value="condo">Condo</option>
+            <option value="land">Land</option>
+          </select>
+        </div>
+
+        <div className="form-field">
           <label>Bedroom</label>
           <input
             type="number"

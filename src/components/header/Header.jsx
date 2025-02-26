@@ -22,24 +22,37 @@ export default function Header() {
         <Link to="/" className="logo">
           <img src="/public/logo.svg" alt="Logo" />
         </Link>
-        <Link to="/" className="site-name">
+        <Link className="desktop-link-style site-name" to="/">
           <span>Ramzillow</span>
         </Link>
       </div>
 
       <div className="right">
-        <Link to="/">Home</Link>
-        <Link to="/rent">Rent</Link>
-        <Link to="/buy">Buy</Link>
+        <Link className="desktop-link-style" to="/">
+          Home
+        </Link>
+        <Link className="desktop-link-style" to="/rent">
+          Rent
+        </Link>
+        <Link className="desktop-link-style" to="/buy">
+          Buy
+        </Link>
         {!user ? (
           <>
-            <Link to="/login">Login</Link>
-            <Link to="/register">Register</Link>
+            <Link className="desktop-link-style" to="/login">
+              Login
+            </Link>
+            <Link className="desktop-link-style" to="/register">
+              Register
+            </Link>
           </>
         ) : (
           <>
-            <Link to="/dashboard">Dashboard</Link>
-            <div className="logout">
+            <Link className="desktop-link-style" to="/dashboard">
+              Dashboard
+            </Link>
+
+            <div className="welcome">
               <p>
                 Welcome{" "}
                 {user.username.charAt(0).toUpperCase() + user.username.slice(1)}

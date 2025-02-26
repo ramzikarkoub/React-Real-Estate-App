@@ -9,6 +9,7 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s, box-shadow 0.2s;
   cursor: pointer;
+  max-height: 220px;
 }
 
 .post-item:hover {
@@ -64,7 +65,7 @@
   width: 40%;
   display: block;
   /* height: auto; */
-  max-height: 240px;
+  /* max-height: 240px; */
 }
 
 .post-details {
@@ -152,6 +153,7 @@
 @media (max-width: 768px) {
   .post-item {
     flex-direction: column;
+    max-height: none !important;
   }
 
   .post-item-link {
