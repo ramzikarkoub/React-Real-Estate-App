@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import "./SearchBar.css";
 
@@ -21,13 +21,12 @@ export default function SearchBar({ onSearch }) {
     setFilters((prev) => ({ ...prev, [id]: value }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  useEffect(() => {
     onSearch(filters);
-  };
+  }, [filters]);
 
   return (
-    <form onSubmit={handleSubmit} className="search-bar">
+    <form className="search-bar">
       <div className="search-field">
         <label htmlFor="location">Location</label>
         <input
@@ -94,9 +93,9 @@ export default function SearchBar({ onSearch }) {
         />
       </div>
 
-      <button type="submit" className="search-button">
+      {/* <button type="submit" className="search-button">
         Search
-      </button>
+      </button> */}
     </form>
   );
 }

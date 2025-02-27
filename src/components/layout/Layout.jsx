@@ -10,11 +10,11 @@ import "./Layout.css";
 const Layout = () => {
   const location = useLocation();
   const { fetchPosts } = useContext(PostContext);
-  const { fetchUserPosts } = useContext(UserContext);
+  const { fetchUserPosts, user } = useContext(UserContext);
 
   const handleSearch =
     location.pathname === "/dashboard" ? fetchUserPosts : fetchPosts;
-
+  console.log(user);
   return (
     <div className="main-layout">
       <Header />
@@ -22,7 +22,10 @@ const Layout = () => {
         <div className="outlet">
           <Outlet />
         </div>
-        <SearchBar onSearch={handleSearch} />
+        {!(location.pathname === "/login") &&
+          !(location.pathname === "/register") && (
+            <SearchBar onSearch={handleSearch} />
+          )}
       </main>
       <Footer />
     </div>
