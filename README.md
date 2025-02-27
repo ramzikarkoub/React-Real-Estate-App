@@ -2,8 +2,8 @@
 
 #### A modern real estate platform where users can browse, buy, sell, and rent properties.
 
-<img src="./assets/Screenshot1.png" alt="Screenshot of Ramzillow" style="width:49%;"/>
-<img src="./assets/Screenshot2.png" alt="Screenshot of Ramzillow" style="width:49%;"/>
+<img src="/public/Screenshot1.png" alt="Screenshot of Ramzillow" style="width:49%;"/>
+<img src="/public/Screenshot2.png" alt="Screenshot of Ramzillow" style="width:49%;"/>
 
 ## Description
 
@@ -55,6 +55,7 @@ Ramzillow is a **React-based real estate platform** where users can **search for
 
 🔗 **Live Site:** [Ramzillow](https://ramzillow.com)  
 🔗 **GitHub Repository - Frontend:** [GitHub Repo](https://github.com/ramzikarkoub/React---Real-Estate-App)
+🔗 **GitHub Repository - Backend:** [GitHub Repo](https://github.com/ramzikarkoub/Real-Estate---Node-Express-MongoDB)
 
 ### **Run Locally**
 
