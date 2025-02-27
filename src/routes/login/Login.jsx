@@ -19,11 +19,11 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="auth-form">
+    <div className="auth-form-login">
       <h1>Login</h1>
-      {message && <p className="auth-error">{message}</p>}
+      {message && <p className="auth-error-login">{message}</p>}
       <form onSubmit={handleSubmit}>
-        <div className="form-field">
+        <div className="form-field-login">
           <label>Email</label>
           <input
             type="email"
@@ -32,7 +32,7 @@ export default function LoginPage() {
             onChange={handleChange}
           />
         </div>
-        <div className="form-field">
+        <div className="form-field-login">
           <label>Password</label>
           <input
             type="password"
@@ -41,7 +41,7 @@ export default function LoginPage() {
             onChange={handleChange}
           />
         </div>
-        <button type="submit" className="auth-button">
+        <button type="submit" className="auth-button-login">
           Login
         </button>
       </form>

@@ -4,7 +4,12 @@
   margin-top: 20px;
   gap: 20px;
 }
-
+input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
 .button-save {
   background: green;
   color: white;
@@ -51,4 +56,28 @@ textarea {
 .image-preview {
   display: flex;
   flex-direction: row;
+}
+select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: white;
+  color: #333;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+select option {
+  background: white;
+  color: #333;
 }

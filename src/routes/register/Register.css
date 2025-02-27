@@ -1,53 +1,54 @@
-.auth-form {
-  width: 400px;
+.auth-form-register {
+  width: 500px;
   margin: 50px auto;
-  padding: 20px;
+  padding: 40px;
   border: 1px solid #ddd;
   border-radius: 8px;
   background-color: #f9f9f9;
   text-align: center;
 }
 
-.auth-form h1 {
+.auth-form-register h1 {
   font-size: 2rem;
   margin-bottom: 20px;
   color: #333;
 }
 
-.auth-error {
+.auth-error-register {
   color: red;
   margin-bottom: 10px;
 }
 
-.form-field {
+.form-field-register {
   margin-bottom: 15px;
   text-align: left;
 }
 
-.form-field label {
+.form-field-register label {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
 }
 
-.form-field input {
+.form-field-register input {
   width: 100%;
   padding: 8px;
   border: 1px solid #ddd;
   border-radius: 5px;
 }
 
-.auth-button {
+.auth-button-register {
   width: 100%;
   padding: 10px;
-  background-color: #007bff;
-  color: white;
+  background-color: #457b9d;
+  color: #fff;
   border: none;
   border-radius: 5px;
-  font-size: 1rem;
+  font-weight: bold;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-.auth-button:hover {
-  background-color: #0056b3;
+.auth-button-register:hover {
+  background-color: #1d3557;
 }

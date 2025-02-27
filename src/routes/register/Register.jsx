@@ -23,11 +23,11 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="auth-form">
+    <div className="auth-form-register">
       <h1>Register</h1>
-      {message && <p className="auth-error">{message}</p>}
+      {message && <p className="auth-error-register">{message}</p>}
       <form onSubmit={handleSubmit}>
-        <div className="form-field">
+        <div className="form-field-register">
           <label>Username</label>
           <input
             type="text"
@@ -36,7 +36,7 @@ export default function RegisterPage() {
             onChange={handleChange}
           />
         </div>
-        <div className="form-field">
+        <div className="form-field-register">
           <label>Email</label>
           <input
             type="email"
@@ -45,7 +45,7 @@ export default function RegisterPage() {
             onChange={handleChange}
           />
         </div>
-        <div className="form-field">
+        <div className="form-field-register">
           <label>Password</label>
           <input
             type="password"
@@ -54,7 +54,7 @@ export default function RegisterPage() {
             onChange={handleChange}
           />
         </div>
-        <button type="submit" className="auth-button">
+        <button type="submit" className="auth-button-register">
           Register
         </button>
       </form>
