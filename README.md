@@ -4,6 +4,8 @@
 
 <img src="/public/Screenshot1.png" alt="Screenshot of Ramzillow" style="width:49%;"/>
 <img src="/public/Screenshot2.png" alt="Screenshot of Ramzillow" style="width:49%;"/>
+<img src="/public/Screenshot3.png" alt="Screenshot of Ramzillow" style="width:49%;"/>
+<img src="/public/Screenshot4.png" alt="Screenshot of Ramzillow" style="width:49%;"/>
 
 ## Description
 
