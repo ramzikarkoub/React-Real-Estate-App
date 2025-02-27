@@ -10,7 +10,6 @@
   display: flex;
   justify-content: space-between;
   gap: 20px;
-
   width: 100%;
   max-width: 1400px;
   margin: 20px auto;
@@ -35,7 +34,7 @@
 
 @media (max-width: 768px) {
   .main {
-    flex-direction: column;
+    flex-direction: column-reverse;
     gap: 10px;
     width: 100%;
     padding: 10px;
