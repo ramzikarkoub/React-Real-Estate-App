@@ -47,7 +47,7 @@
   /* color: #fae3d9; */
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .search-bar {
     width: 100%;
     position: static;

@@ -28,7 +28,7 @@ export default function SearchBar({ onSearch }) {
   return (
     <form className="search-bar">
       <div className="search-field">
-        <label htmlFor="location">Location</label>
+        <label htmlFor="location">City</label>
         <input
           type="text"
           id="location"

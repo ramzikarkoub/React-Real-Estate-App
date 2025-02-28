@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
 import UserContext from "../../context/UserContext";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./PostItem.css";
 import { FaBed, FaBath } from "react-icons/fa";
+import { GiResize } from "react-icons/gi";
 import Button from "../Button/Button";
 
 export default function PostItem({ post, onEdit, onDelete }) {
@@ -11,11 +12,14 @@ export default function PostItem({ post, onEdit, onDelete }) {
     e.preventDefault();
     onEdit(post);
   };
+  const location = useLocation();
+  const page = location.pathname === "/dashboard";
 
   const handleDeleteClick = (e) => {
     e.preventDefault();
     onDelete(post._id);
   };
+  console.log(post);
 
   return (
     <div className="post-item">
@@ -30,12 +34,17 @@ export default function PostItem({ post, onEdit, onDelete }) {
           <p className="price-txt">$ {post.price.toLocaleString()}</p>
         </div>
 
-        <div className="post-features">
+        <div className={`${!page ? "haha" : ""} post-features`}>
           <span className="feature">
             <FaBed /> {post.bedroom} bedroom
           </span>
           <span className="feature">
             <FaBath /> {post.bathroom} bathroom
+          </span>
+
+          <span className="feature">
+            <GiResize />
+            {post.postDetail.size} sq ft
           </span>
           {user && user._id === post.userId._id && (
             <div className="buttons">
