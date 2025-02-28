@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useMemo } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import Header from "../header/Header";
 import Footer from "../footer/Footer";
@@ -12,20 +12,26 @@ const Layout = () => {
   const { fetchPosts } = useContext(PostContext);
   const { fetchUserPosts, user } = useContext(UserContext);
 
-  const handleSearch =
-    location.pathname === "/dashboard" ? fetchUserPosts : fetchPosts;
+  // Determine if the current page should be centered
+  const isAuthPage =
+    location.pathname === "/login" || location.pathname === "/register";
+
+  // Determine the appropriate search function
+  const handleSearch = useMemo(
+    () => (location.pathname === "/dashboard" ? fetchUserPosts : fetchPosts),
+    [location.pathname, fetchUserPosts, fetchPosts]
+  );
+
   console.log(user);
+
   return (
     <div className="main-layout">
       <Header />
-      <main className="main">
-        <div className="outlet">
+      <main className={`main ${isAuthPage ? "main-center" : ""}`}>
+        <div className={`outlet ${isAuthPage ? "outlet-center" : ""}`}>
           <Outlet />
         </div>
-        {!(location.pathname === "/login") &&
-          !(location.pathname === "/register") && (
-            <SearchBar onSearch={handleSearch} />
-          )}
+        {!isAuthPage && <SearchBar onSearch={handleSearch} />}
       </main>
       <Footer />
     </div>
