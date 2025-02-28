@@ -1,0 +1,68 @@
+/* Default button styles */
+.btn {
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+  color: white;
+}
+
+/* Green Button */
+.btn-green {
+  background-color: rgb(58, 151, 58);
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-green:hover {
+  background-color: rgb(27, 124, 27);
+
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Blue Button */
+.btn-blue {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  background-color: #457b9d;
+  color: white;
+}
+
+.btn-blue:hover {
+  background-color: #1d3557;
+}
+
+/* Red Button */
+.btn-red {
+  background-color: #dc3545;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-red:hover {
+  background-color: #bd2130;
+}
+
+/* wide */
+.wide {
+  width: 100%;
+}

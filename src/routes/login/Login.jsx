@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import UserContext from "../../context/UserContext";
 import "./Login.css";
+import Button from "../../components/Button/Button";
 
 export default function LoginPage() {
   const { login, message } = useContext(UserContext);
@@ -41,9 +42,9 @@ export default function LoginPage() {
             onChange={handleChange}
           />
         </div>
-        <button type="submit" className="auth-button-login">
+        <Button type="submit" color="blue wide">
           Login
-        </button>
+        </Button>
       </form>
     </div>
   );

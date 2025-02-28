@@ -7,7 +7,7 @@
   justify-content: space-between;
   margin-bottom: 1.5rem;
 }
-.button-add {
+/* .button-add {
   background-color: rgb(58, 151, 58);
   color: white;
   padding: 8px 14px;
@@ -23,4 +23,4 @@
   background-color: rgb(27, 124, 27);
 
   transition: background-color 0.3s ease, color 0.3s ease;
-}
+} */

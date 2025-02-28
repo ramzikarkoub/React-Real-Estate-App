@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import UserContext from "../../context/UserContext";
 import { useNavigate } from "react-router-dom";
 import "./Register.css";
+import Button from "../../components/Button/Button";
 
 export default function RegisterPage() {
   const { register, message } = useContext(UserContext);
@@ -54,9 +55,9 @@ export default function RegisterPage() {
             onChange={handleChange}
           />
         </div>
-        <button type="submit" className="auth-button-register">
+        <Button type="submit" color="blue wide">
           Register
-        </button>
+        </Button>
       </form>
     </div>
   );

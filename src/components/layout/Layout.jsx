@@ -1,8 +1,8 @@
 import React, { useContext, useMemo } from "react";
 import { Outlet, useLocation } from "react-router-dom";
-import Header from "../header/Header";
-import Footer from "../footer/Footer";
-import SearchBar from "../searchBar/SearchBar";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
+import SearchBar from "../SearchBar/SearchBar";
 import PostContext from "../../context/PostContext";
 import UserContext from "../../context/UserContext";
 import "./Layout.css";
@@ -21,8 +21,6 @@ const Layout = () => {
     () => (location.pathname === "/dashboard" ? fetchUserPosts : fetchPosts),
     [location.pathname, fetchUserPosts, fetchPosts]
   );
-
-  console.log(user);
 
   return (
     <div className="main-layout">

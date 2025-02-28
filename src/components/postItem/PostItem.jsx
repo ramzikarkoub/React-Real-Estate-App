@@ -3,6 +3,7 @@ import UserContext from "../../context/UserContext";
 import { Link } from "react-router-dom";
 import "./PostItem.css";
 import { FaBed, FaBath } from "react-icons/fa";
+import Button from "../Button/Button";
 
 export default function PostItem({ post, onEdit, onDelete }) {
   const { user } = useContext(UserContext);
@@ -38,12 +39,12 @@ export default function PostItem({ post, onEdit, onDelete }) {
           </span>
           {user && user._id === post.userId._id && (
             <div className="buttons">
-              <button className="button-edit" onClick={handleEditClick}>
+              <Button color="blue" onClick={handleEditClick}>
                 Edit
-              </button>
-              <button className="button-delete" onClick={handleDeleteClick}>
+              </Button>
+              <Button color="red" onClick={handleDeleteClick}>
                 Delete
-              </button>
+              </Button>
             </div>
           )}
         </div>

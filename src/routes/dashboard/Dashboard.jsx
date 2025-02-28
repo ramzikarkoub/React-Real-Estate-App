@@ -6,6 +6,7 @@ import Modal from "../../components/Modal/Modal";
 import PostForm from "../../components/postForm/PostForm";
 import SearchBar from "../../components/searchBar/SearchBar";
 import "./Dashboard.css";
+import Button from "../../components/Button/Button";
 
 export default function Dashboard() {
   const { user, userPosts, fetchUserPosts } = useContext(UserContext);
@@ -56,9 +57,9 @@ export default function Dashboard() {
           {user?.username.charAt(0).toUpperCase() + user.username.slice(1)}'s
           Listings
         </h1>
-        <button className="button-add" onClick={handleAdd}>
+        <Button color="green" onClick={handleAdd}>
           + Add Listing
-        </button>
+        </Button>
       </div>
 
       {showForm && (
