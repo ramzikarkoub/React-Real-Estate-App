@@ -94,6 +94,7 @@ export default function PostForm({ onSubmit, initialData, onClose }) {
             name="title"
             value={formData.title || ""}
             onChange={handleChange}
+            placeholder="Enter listing title"
             required
           />
         </div>
@@ -105,6 +106,7 @@ export default function PostForm({ onSubmit, initialData, onClose }) {
             name="price"
             value={formData.price || ""}
             onChange={handleChange}
+            placeholder="Enter price"
             required
           />
         </div>
@@ -116,6 +118,7 @@ export default function PostForm({ onSubmit, initialData, onClose }) {
             name="address"
             value={formData.address || ""}
             onChange={handleChange}
+            placeholder="Enter property address"
             required
           />
         </div>
@@ -127,6 +130,7 @@ export default function PostForm({ onSubmit, initialData, onClose }) {
             name="city"
             value={formData.city || ""}
             onChange={handleChange}
+            placeholder="Enter city"
             required
           />
         </div>
@@ -137,8 +141,12 @@ export default function PostForm({ onSubmit, initialData, onClose }) {
             name="type"
             value={formData.type}
             onChange={handleChange}
+            placeholder="type"
             required
           >
+            <option value="Choose " disabled defaultValue="haha">
+              Choose a Type
+            </option>
             <option value="rent">Rent</option>
             <option value="buy">Buy</option>
           </select>
@@ -150,6 +158,7 @@ export default function PostForm({ onSubmit, initialData, onClose }) {
             name="property"
             value={formData.property}
             onChange={handleChange}
+            placeholder="City"
             required
           >
             <option value="apartment">Apartment</option>
@@ -166,6 +175,7 @@ export default function PostForm({ onSubmit, initialData, onClose }) {
             name="bedroom"
             value={formData.bedroom || ""}
             onChange={handleChange}
+            placeholder="Enter number of bedrooms"
             required
           />
         </div>
@@ -177,6 +187,7 @@ export default function PostForm({ onSubmit, initialData, onClose }) {
             name="bathroom"
             value={formData.bathroom || ""}
             onChange={handleChange}
+            placeholder="Enter number of bathrooms"
             required
           />
         </div>
@@ -187,6 +198,7 @@ export default function PostForm({ onSubmit, initialData, onClose }) {
             name="desc"
             value={formData.postDetail.desc || ""}
             onChange={handleChange}
+            placeholder="Enter property description"
             required
           />
         </div>
@@ -217,6 +229,7 @@ export default function PostForm({ onSubmit, initialData, onClose }) {
             name="utilities"
             value={formData.postDetail.utilities || ""}
             onChange={handleChange}
+            placeholder="List included utilities"
           />
         </div>
 
@@ -227,6 +240,7 @@ export default function PostForm({ onSubmit, initialData, onClose }) {
             name="pet"
             value={formData.postDetail.pet || ""}
             onChange={handleChange}
+            placeholder="Is pet allowed? (Yes/No)"
           />
         </div>
 
@@ -237,6 +251,7 @@ export default function PostForm({ onSubmit, initialData, onClose }) {
             name="size"
             value={formData.postDetail.size || ""}
             onChange={handleChange}
+            placeholder="Enter size in sqft"
           />
         </div>
 
