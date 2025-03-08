@@ -18,11 +18,6 @@ export default function Dashboard() {
     fetchUserPosts();
   }, []);
 
-  // Handle search with filters
-  // const handleSearch = async (filters) => {
-  //   await fetchUserPosts(filters);
-  // };
-
   const handleAdd = () => {
     setEditData(null);
     setShowForm(true);

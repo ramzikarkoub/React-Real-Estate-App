@@ -1,5 +1,4 @@
 import React, { createContext, useContext, useState } from "react";
-// import axios from "axios";
 import apiRequest from "../api/apiRequest";
 import UserContext from "../context/UserContext";
 const PostContext = createContext();
