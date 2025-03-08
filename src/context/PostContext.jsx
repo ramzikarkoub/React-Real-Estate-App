@@ -14,9 +14,7 @@ export const PostProvider = ({ children }) => {
     setLoading(true);
     try {
       const params = new URLSearchParams(filters).toString();
-      const response = await apiRequest.get(
-        `http://localhost:4000/api/posts?${params}`
-      );
+      const response = await apiRequest.get(`posts?${params}`);
       if (Array.isArray(response.data)) {
         setPosts(response.data);
         setMessage("");
@@ -36,9 +34,7 @@ export const PostProvider = ({ children }) => {
   const fetchPostById = async (id) => {
     setLoading(true);
     try {
-      const response = await apiRequest.get(
-        `http://localhost:4000/api/posts/${id}`
-      );
+      const response = await apiRequest.get(`posts/${id}`);
       setPost(response.data);
       setMessage("");
     } catch (error) {
