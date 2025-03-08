@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import PostContext from "../../context/PostContext";
-import PostItem from "../../components/postItem/PostItem";
+import PostItem from "../../components/PostItem/PostItem";
 import "./BuyPage.css";
 
 export default function BuyPage() {
