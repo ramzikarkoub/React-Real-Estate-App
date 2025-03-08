@@ -34,7 +34,7 @@ export const PostProvider = ({ children }) => {
   const fetchPostById = async (id) => {
     setLoading(true);
     try {
-      const response = await apiRequest.get(`posts/${id}`);
+      const response = await apiRequest.get(`/posts/${id}`);
       setPost(response.data);
       setMessage("");
     } catch (error) {

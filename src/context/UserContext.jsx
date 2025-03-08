@@ -64,7 +64,7 @@ export const UserProvider = ({ children }) => {
     try {
       const params = new URLSearchParams(filters).toString();
       console.log(params);
-      const response = await apiRequest.get(`posts/user?${params}`);
+      const response = await apiRequest.get(`/posts/user?${params}`);
       setUserPosts(response.data || []);
     } catch (error) {
       setUserPosts([]);
