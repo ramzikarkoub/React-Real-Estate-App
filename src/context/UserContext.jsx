@@ -52,7 +52,7 @@ export const UserProvider = ({ children }) => {
 
   const logout = async () => {
     try {
-      await apiRequest.post("/auth/logout");
+      await apiRequest.post("/auth/logout", {}, { withCredentials: true }); // Ensure credentials are sent
       setUser(null);
       setUserPosts([]);
     } catch (error) {
