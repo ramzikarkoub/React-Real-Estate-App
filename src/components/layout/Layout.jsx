@@ -1,10 +1,10 @@
 import React, { useContext, useMemo } from "react";
 import { Outlet, useLocation } from "react-router-dom";
-import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import SearchBar from "../SearchBar/SearchBar";
 import PostContext from "../../context/PostContext";
 import UserContext from "../../context/UserContext";
+import Header from "../Header/Header.jsx";
 import "./Layout.css";
 
 const Layout = () => {
