@@ -20,7 +20,7 @@ export default function Nav() {
     <nav>
       <div className="left">
         <Link to="/" className="logo">
-          <img src="../../../public/logo.svg" alt="Logo" />
+          <img src="/logo.svg" alt="Logo" />
         </Link>
         <Link className="desktop-link-style site-name" to="/">
           <span>Ramzillow</span>
