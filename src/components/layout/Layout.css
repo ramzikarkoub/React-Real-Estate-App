@@ -11,9 +11,10 @@
   justify-content: space-between;
   gap: 20px;
   width: 100%;
-  max-width: 1400px;
+  max-width: 1150px;
   margin: 20px auto;
   box-sizing: border-box;
+  padding: 0 20px;
 }
 
 .outlet {

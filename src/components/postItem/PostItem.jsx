@@ -19,7 +19,6 @@ export default function PostItem({ post, onEdit, onDelete }) {
     e.preventDefault();
     onDelete(post._id);
   };
-  console.log(post);
 
   return (
     <div className="post-item">
