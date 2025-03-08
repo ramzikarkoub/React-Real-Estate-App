@@ -4,7 +4,7 @@ import Footer from "../Footer/Footer";
 import SearchBar from "../SearchBar/SearchBar";
 import PostContext from "../../context/PostContext";
 import UserContext from "../../context/UserContext";
-import Header from "../Header/Header.jsx";
+import Nav from "../Nav/Nav.jsx";
 import "./Layout.css";
 
 const Layout = () => {
@@ -24,7 +24,7 @@ const Layout = () => {
 
   return (
     <div className="main-layout">
-      <Header />
+      <Nav />
       <main className={`main ${isAuthPage ? "main-center" : ""}`}>
         <div className={`outlet ${isAuthPage ? "outlet-center" : ""}`}>
           <Outlet />

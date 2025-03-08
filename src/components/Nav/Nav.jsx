@@ -2,9 +2,9 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import UserContext from "../../context/UserContext";
-import "./Header.css";
+import "./Nav.css";
 
-export default function Header() {
+export default function Nav() {
   const { logout, user } = useContext(UserContext);
   const [showMenu, setShowMenu] = useState(false);
 
