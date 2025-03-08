@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
-import Layout from "./components/layout/Layout";
+
 import HomePage from "./routes/homePage/HomePage";
 import BuyPage from "./routes/buyPage/BuyPage";
 import RentPage from "./routes/rentPage/RentPage";
@@ -9,6 +9,7 @@ import LoginPage from "./routes/login/Login";
 import Register from "./routes/register/Register";
 import ProtectedRoute from "./api/ProtectedRoute";
 import Dashboard from "./routes/dashboard/Dashboard";
+import Layout from "./components/layout/Layout";
 
 const router = createBrowserRouter([
   {
