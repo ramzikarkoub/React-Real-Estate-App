@@ -13,7 +13,6 @@ export const UserProvider = ({ children }) => {
     try {
       setIsLoading(true); //
       const response = await apiRequest.get("/auth/me");
-      console.log("User authentication response:", response);
       setUser(response.data);
     } catch (error) {
       setUser(null);
@@ -63,7 +62,6 @@ export const UserProvider = ({ children }) => {
   const fetchUserPosts = async (filters = {}) => {
     try {
       const params = new URLSearchParams(filters).toString();
-      console.log(params);
       const response = await apiRequest.get(`/posts/user?${params}`);
       setUserPosts(response.data || []);
     } catch (error) {
