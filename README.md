@@ -55,7 +55,7 @@ Ramzillow is a **React-based real estate platform** where users can **search for
 
 ## <a name="deployment"></a>Deployed Link
 
-🔗 **Live Site:** [Ramzillow](https://ramzillow-react-real-estate.vercel.app/)  
+🔗 **Live Site:** [Ramzillow](https://ramzillow-ramzikarkoubs-projects.vercel.app/)  
 🔗 **GitHub Repository - Frontend:** [GitHub Repo](https://github.com/ramzikarkoub/React---Real-Estate-App)
 🔗 **GitHub Repository - Backend:** [GitHub Repo](https://github.com/ramzikarkoub/Real-Estate---Node-Express-MongoDB)
 
