@@ -18,6 +18,12 @@ export default function SearchBar({ onSearch }) {
 
   const handleChange = (e) => {
     const { id, value } = e.target;
+
+    // Prevent numeric input for city field
+    if (id === "location" && /\d/.test(value)) {
+      return;
+    }
+
     setFilters((prev) => ({ ...prev, [id]: value }));
   };
 
