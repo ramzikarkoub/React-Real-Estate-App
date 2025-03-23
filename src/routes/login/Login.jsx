@@ -25,19 +25,21 @@ export default function LoginPage() {
       {message && <p className="auth-error-login">{message}</p>}
       <form onSubmit={handleSubmit}>
         <div className="form-field-login">
-          <label>Email</label>
+          <label htmlFor="email">Email</label>
           <input
             type="email"
             name="email"
+            id="email"
             value={formData.email}
             onChange={handleChange}
           />
         </div>
         <div className="form-field-login">
-          <label>Password</label>
+          <label htmlFor="password">Password</label>
           <input
             type="password"
             name="password"
+            id="password"
             value={formData.password}
             onChange={handleChange}
           />
