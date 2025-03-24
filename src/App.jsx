@@ -1,7 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 
-import HomePage from "./routes/HomePage/HomePage";
 import BuyPage from "./routes/BuyPage/BuyPage";
 import RentPage from "./routes/RentPage/RentPage";
 import SinglePost from "./routes/SinglePost/SinglePost";
@@ -10,6 +9,7 @@ import Register from "./routes/Register/Register";
 import ProtectedRoute from "./api/ProtectedRoute";
 import Dashboard from "./routes/Dashboard/Dashboard";
 import Layout from "./components/Layout/Layout";
+import HomePage from "./routes/HomePage/HomePage";
 
 const router = createBrowserRouter([
   {
