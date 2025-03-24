@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./PostForm.css";
-import env from "react-dotenv";
+import { CLOUDINARY_URL } from "../../utils/env";
 
 export default function PostForm({ onSubmit, initialData, onClose }) {
   const [formData, setFormData] = useState({
@@ -50,7 +50,7 @@ export default function PostForm({ onSubmit, initialData, onClose }) {
         uploadData.append("file", file);
         uploadData.append("upload_preset", "real_estate");
 
-        const response = await fetch(import.meta.env.VITE_CLOUDINARY_URL, {
+        const response = await fetch(CLOUDINARY_URL, {
           method: "POST",
           body: uploadData,
         });
@@ -88,8 +88,9 @@ export default function PostForm({ onSubmit, initialData, onClose }) {
       <h2>{initialData ? "Edit Listing" : "Add Listing"}</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-field">
-          <label>Title</label>
+          <label htmlFor="title">Title</label>
           <input
+            id="title"
             type="text"
             name="title"
             value={formData.title || ""}
@@ -100,8 +101,9 @@ export default function PostForm({ onSubmit, initialData, onClose }) {
         </div>
 
         <div className="form-field">
-          <label>Price</label>
+          <label htmlFor="price">Price</label>
           <input
+            id="price"
             type="number"
             name="price"
             value={formData.price || ""}
@@ -112,8 +114,9 @@ export default function PostForm({ onSubmit, initialData, onClose }) {
         </div>
 
         <div className="form-field">
-          <label>Address</label>
+          <label htmlFor="address">Address</label>
           <input
+            id="address"
             type="text"
             name="address"
             value={formData.address || ""}
@@ -124,8 +127,9 @@ export default function PostForm({ onSubmit, initialData, onClose }) {
         </div>
 
         <div className="form-field">
-          <label>City</label>
+          <label htmlFor="city">City</label>
           <input
+            id="city"
             type="text"
             name="city"
             value={formData.city || ""}
@@ -136,8 +140,9 @@ export default function PostForm({ onSubmit, initialData, onClose }) {
         </div>
 
         <div className="form-field">
-          <label>Type</label>
+          <label htmlFor="type">Type</label>
           <select
+            id="type"
             name="type"
             value={formData.type}
             onChange={handleChange}
@@ -153,8 +158,10 @@ export default function PostForm({ onSubmit, initialData, onClose }) {
         </div>
 
         <div className="form-field">
-          <label>Property</label>
+          <label htmlFor="property">Property</label>
+
           <select
+            id="property"
             name="property"
             value={formData.property}
             onChange={handleChange}
@@ -169,8 +176,9 @@ export default function PostForm({ onSubmit, initialData, onClose }) {
         </div>
 
         <div className="form-field">
-          <label>Bedroom</label>
+          <label htmlFor="bedroom">Bedroom</label>
           <input
+            id="bedroom"
             type="number"
             name="bedroom"
             value={formData.bedroom || ""}
@@ -181,8 +189,9 @@ export default function PostForm({ onSubmit, initialData, onClose }) {
         </div>
 
         <div className="form-field">
-          <label>Bathroom</label>
+          <label htmlFor="bathroom">Bathroom</label>
           <input
+            id="bathroom"
             type="number"
             name="bathroom"
             value={formData.bathroom || ""}
@@ -193,8 +202,9 @@ export default function PostForm({ onSubmit, initialData, onClose }) {
         </div>
 
         <div className="form-field">
-          <label>Description</label>
+          <label htmlFor="description">Description</label>
           <textarea
+            id="description"
             name="desc"
             value={formData.postDetail.desc || ""}
             onChange={handleChange}
@@ -223,8 +233,9 @@ export default function PostForm({ onSubmit, initialData, onClose }) {
         </div>
 
         <div className="form-field">
-          <label>Utilities</label>
+          <label htmlFor="utilities">Utilities</label>
           <input
+            id="utilities"
             type="text"
             name="utilities"
             value={formData.postDetail.utilities || ""}
@@ -234,8 +245,9 @@ export default function PostForm({ onSubmit, initialData, onClose }) {
         </div>
 
         <div className="form-field">
-          <label>Pet</label>
+          <label htmlFor="pet">Pet</label>
           <input
+            id="pet"
             type="text"
             name="pet"
             value={formData.postDetail.pet || ""}
@@ -245,8 +257,9 @@ export default function PostForm({ onSubmit, initialData, onClose }) {
         </div>
 
         <div className="form-field">
-          <label>Size</label>
+          <label htmlFor="size">Size</label>
           <input
+            id="size"
             type="number"
             name="size"
             value={formData.postDetail.size || ""}
