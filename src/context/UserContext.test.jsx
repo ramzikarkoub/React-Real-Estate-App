@@ -15,7 +15,7 @@ import React from "react";
 import { render, waitFor } from "@testing-library/react";
 import UserContext, { UserProvider } from "./UserContext";
 
-// ✅ Mock useNavigate
+//  Mock useNavigate
 const mockNavigate = jest.fn();
 jest.mock("react-router-dom", () => ({
   ...jest.requireActual("react-router-dom"),
