@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import PostContext from "../../context/PostContext";
-import Footer from "../Footer/Footer";
+import Footer from "../footer/Footer";
 import "./BuyPage.css";
 
 export default function BuyPage() {
