@@ -31,7 +31,7 @@ jest.mock("../../components/Modal/Modal", () => ({ children }) => (
 ));
 
 jest.mock(
-  "../../components/PostForm/PostForm",
+  "../../components/postForm/PostForm",
   () =>
     ({ onSubmit, onClose }) =>
       (
