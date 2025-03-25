@@ -1,3 +1,4 @@
+// ✅ Mock apiRequest globally
 jest.mock("../../api/apiRequest", () => ({
   default: {
     get: jest.fn(),
@@ -12,12 +13,21 @@ import { render, screen } from "@testing-library/react";
 import BuyPage from "./BuyPage";
 import PostContext from "../../context/PostContext";
 
-// Mock PostItem
+// ✅ Mock PostItem
 jest.mock("../../components/postItem/PostItem", () => ({ post }) => (
   <div data-testid="post-item">{post.title}</div>
 ));
 
-const renderWithContext = (contextValue) => {
+// ✅ Create reusable render helper with safe defaults
+const defaultContext = {
+  posts: [],
+  loading: false,
+  message: "",
+  fetchPosts: jest.fn(),
+};
+
+const renderWithContext = (overrides = {}) => {
+  const contextValue = { ...defaultContext, ...overrides };
   render(
     <PostContext.Provider value={contextValue}>
       <BuyPage />
@@ -26,33 +36,24 @@ const renderWithContext = (contextValue) => {
 };
 
 describe("BuyPage", () => {
-  const mockPosts = [
-    { title: "House 1", _id: "1" },
-    { title: "House 2", _id: "2" },
-  ];
-
   it("shows loading message", () => {
-    renderWithContext({ loading: true, posts: [], fetchPosts: jest.fn() });
+    renderWithContext({ loading: true });
     expect(screen.getByText(/loading/i)).toBeInTheDocument();
   });
 
   it("shows error message", () => {
-    renderWithContext({
-      loading: false,
-      posts: [],
-      message: "Error loading",
-      fetchPosts: jest.fn(),
-    });
+    renderWithContext({ message: "Error loading" });
     expect(screen.getByText(/error loading/i)).toBeInTheDocument();
   });
 
   it("renders post items", () => {
-    renderWithContext({
-      loading: false,
-      posts: mockPosts,
-      message: "",
-      fetchPosts: jest.fn(),
-    });
+    const mockPosts = [
+      { title: "House 1", _id: "1" },
+      { title: "House 2", _id: "2" },
+    ];
+
+    renderWithContext({ posts: mockPosts });
+
     const items = screen.getAllByTestId("post-item");
     expect(items).toHaveLength(2);
     expect(screen.getByText("House 1")).toBeInTheDocument();
