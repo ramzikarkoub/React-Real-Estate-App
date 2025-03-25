@@ -13,7 +13,7 @@ import BuyPage from "./BuyPage";
 import PostContext from "../../context/PostContext";
 
 // Mock PostItem
-jest.mock("../../components/PostItem/PostItem", () => ({ post }) => (
+jest.mock("../../components/postItem/PostItem", () => ({ post }) => (
   <div data-testid="post-item">{post.title}</div>
 ));
 

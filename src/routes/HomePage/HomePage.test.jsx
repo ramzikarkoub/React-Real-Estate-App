@@ -6,7 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import PostContext from "../../context/PostContext";
 
 // ✅ 1. Mock PostItem to simplify test output
-jest.mock("../../components/PostItem/PostItem", () => (props) => {
+jest.mock("../../components/postItem/PostItem", () => (props) => {
   return <div data-testid="post-item">{props.post.title}</div>;
 });
 

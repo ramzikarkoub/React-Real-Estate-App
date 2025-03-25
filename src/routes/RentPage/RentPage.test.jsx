@@ -12,7 +12,7 @@ jest.mock("../../api/apiRequest", () => ({
   },
 }));
 
-jest.mock("../../components/PostItem/PostItem", () => ({ post }) => (
+jest.mock("../../components/postItem/PostItem", () => ({ post }) => (
   <div data-testid="post-item">{post.title}</div>
 ));
 
