@@ -1,5 +1,7 @@
 # Ramzillow - Real Estate Marketplace (Frontend)
 
+![Coverage Status](https://coveralls.io/repos/github/ramzikarkoub/React-Real-Estate-App/badge.svg?branch=main)
+
 #### A modern real estate platform where users can browse, buy, sell, and rent properties.
 
 <img src="/public/Screenshot1.png" alt="Screenshot of Ramzillow" style="width:49%;"/>

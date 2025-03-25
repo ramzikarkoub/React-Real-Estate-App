@@ -17,7 +17,7 @@ import UserContext from "../../context/UserContext";
 
 // Mock components
 jest.mock("../Nav/Nav", () => () => <nav>Mock Nav</nav>);
-jest.mock("../Footer/Footer", () => () => <footer>Mock Footer</footer>);
+jest.mock("../footer/Footer", () => () => <footer>Mock Footer</footer>);
 jest.mock("../SearchBar/SearchBar", () => ({ onSearch }) => (
   <div>Mock SearchBar</div>
 ));
