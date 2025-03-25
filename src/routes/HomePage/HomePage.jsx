@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import PostContext from "../../context/PostContext";
-import PostItem from "../../components/PostItem/PostItem";
 import "./HomePage.css";
+import PostItem from "../../components/PostItem/PostItem";
 
 export default function HomePage() {
   const { posts, loading, message, fetchPosts } = useContext(PostContext);
