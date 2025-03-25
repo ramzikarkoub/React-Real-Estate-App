@@ -14,7 +14,7 @@ import PostContext from "../../context/PostContext";
 
 // Mock subcomponents
 jest.mock(
-  "../../components/PostItem/PostItem",
+  "../../components/postItem/PostItem",
   () =>
     ({ post, onEdit, onDelete }) =>
       (

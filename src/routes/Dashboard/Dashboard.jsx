@@ -4,7 +4,7 @@ import PostContext from "../../context/PostContext";
 import PostItem from "../../components/postItem/PostItem";
 import Modal from "../../components/Modal/Modal";
 import PostForm from "../../components/PostForm/PostForm";
-import SearchBar from "../../components/SearchBar/SearchBar";
+import SearchBar from "../../components/searchBar/SearchBar";
 import "./Dashboard.css";
 import Button from "../../components/Button/Button";
 
