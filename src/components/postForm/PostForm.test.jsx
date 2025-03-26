@@ -1,9 +1,16 @@
+import React from "react";
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import PostForm from "./PostForm";
+
 jest.mock("../../utils/env.js", () => ({
   CLOUDINARY_URL: "https://mock-cloudinary-url.com",
 }));
-import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
-import PostForm from "./PostForm";
+
+global.fetch = jest.fn(() =>
+  Promise.resolve({
+    json: () => Promise.resolve({ secure_url: "http://image.com/test.jpg" }),
+  })
+);
 
 const mockOnSubmit = jest.fn();
 const mockOnClose = jest.fn();
@@ -22,6 +29,7 @@ describe("PostForm", () => {
   beforeEach(() => {
     mockOnSubmit.mockClear();
     mockOnClose.mockClear();
+    fetch.mockClear();
   });
 
   it("renders all required input fields", () => {
@@ -82,8 +90,67 @@ describe("PostForm", () => {
         bedroom: "3",
         bathroom: "2",
         postDetail: expect.objectContaining({ desc: "Nice place" }),
+        imageUrls: [],
       })
     );
+  });
+
+  it("fills in initialData when provided", () => {
+    const initialData = {
+      title: "Existing Title",
+      price: "1000",
+      address: "456 Lane",
+      city: "Miami",
+      bedroom: "2",
+      bathroom: "1",
+      type: "rent",
+      property: "house",
+      images: [],
+      postDetail: {
+        desc: "Old listing",
+        utilities: "Water, Internet",
+        pet: "Yes",
+        size: "800",
+      },
+    };
+
+    setup(initialData);
+
+    expect(screen.getByDisplayValue("Existing Title")).toBeInTheDocument();
+    expect(screen.getByDisplayValue("Water, Internet")).toBeInTheDocument();
+    expect(screen.getByDisplayValue("Yes")).toBeInTheDocument();
+    expect(screen.getByDisplayValue("800")).toBeInTheDocument();
+  });
+
+  it("uploads image and displays preview", async () => {
+    setup();
+
+    const file = new File(["dummy"], "test.jpg", { type: "image/jpeg" });
+
+    const fileInput = screen.getByLabelText(/Images/i);
+    fireEvent.change(fileInput, { target: { files: [file] } });
+
+    await waitFor(() => {
+      expect(screen.getByAltText(/Upload 0/i)).toBeInTheDocument();
+    });
+  });
+
+  it("removes image when delete button is clicked", async () => {
+    setup();
+
+    const file = new File(["dummy"], "test.jpg", { type: "image/jpeg" });
+    fireEvent.change(screen.getByLabelText(/Images/i), {
+      target: { files: [file] },
+    });
+
+    await waitFor(() => {
+      expect(screen.getByAltText(/Upload 0/i)).toBeInTheDocument();
+    });
+
+    fireEvent.click(screen.getByRole("button", { name: /x/i }));
+    await waitFor(() => {
+      expect(screen.queryByAltText(/Upload 0/i)).not.toBeInTheDocument();
+    });
   });
 
   it("calls onClose when cancel is clicked", () => {

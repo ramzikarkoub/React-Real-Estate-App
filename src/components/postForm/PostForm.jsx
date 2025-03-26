@@ -214,8 +214,13 @@ export default function PostForm({ onSubmit, initialData, onClose }) {
         </div>
 
         <div className="form-field">
-          <label>Images</label>
-          <input type="file" multiple onChange={handleImageUpload} />
+          <label htmlFor="images">Images</label>
+          <input
+            id="images"
+            type="file"
+            multiple
+            onChange={handleImageUpload}
+          />
           <div className="image-preview">
             {formData.images.map((url, index) => (
               <div key={index} className="image-item">
