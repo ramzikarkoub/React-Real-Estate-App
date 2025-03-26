@@ -15,7 +15,7 @@ jest.mock("../../api/apiRequest", () => ({
 
 // Mock subcomponents
 jest.mock(
-  "../../components/postItem/PostItem",
+  "../../components/PostItem/PostItem",
   () =>
     ({ post, onEdit, onDelete }) =>
       (

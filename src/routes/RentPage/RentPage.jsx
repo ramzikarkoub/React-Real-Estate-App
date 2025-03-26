@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import PostContext from "../../context/PostContext";
 import "./RentPage.css";
-import PostItem from "../../components/postItem/PostItem";
+import PostItem from "../../components/PostItem/PostItem";
 
 export default function RentPage() {
   const { posts, loading, message, fetchPosts } = useContext(PostContext);

@@ -1,4 +1,4 @@
-// ✅ Mock apiRequest globally
+// Mock apiRequest globally
 jest.mock("../../api/apiRequest", () => ({
   default: {
     get: jest.fn(),
@@ -13,12 +13,12 @@ import { render, screen } from "@testing-library/react";
 import BuyPage from "./BuyPage";
 import PostContext from "../../context/PostContext";
 
-// ✅ Mock PostItem
-jest.mock("../../components/postItem/PostItem", () => ({ post }) => (
+// Mock PostItem
+jest.mock("../../components/PostItem/PostItem", () => ({ post }) => (
   <div data-testid="post-item">{post.title}</div>
 ));
 
-// ✅ Create reusable render helper with safe defaults
+//  Create reusable render helper with safe defaults
 const defaultContext = {
   posts: [],
   loading: false,
