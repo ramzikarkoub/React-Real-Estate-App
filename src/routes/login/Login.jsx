@@ -4,7 +4,7 @@ import UserContext from "../../context/UserContext";
 import "./Login.css";
 import Button from "../../components/Button/Button";
 
-export default function LoginPage() {
+export default function Login() {
   const { login, message } = useContext(UserContext);
   const navigate = useNavigate();
   const [formData, setFormData] = useState({ email: "", password: "" });

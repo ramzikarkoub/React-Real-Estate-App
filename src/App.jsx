@@ -5,7 +5,7 @@ import Dashboard from "./routes/Dashboard/Dashboard";
 import Layout from "./components/Layout/Layout";
 import HomePage from "./routes/HomePage/HomePage";
 import RentPage from "./routes/RentPage/RentPage";
-import LoginPage from "./routes/Login/Login";
+import Login from "./routes/Login/Login";
 import RegisterPage from "./routes/Register/Register";
 import BuyPage from "./routes/BuyPage/BuyPage";
 import SinglePost from "../src/routes/SinglePost/SinglePost";
@@ -19,7 +19,7 @@ const router = createBrowserRouter([
       { path: "buy", element: <BuyPage /> },
       { path: "rent", element: <RentPage /> },
       { path: ":id", element: <SinglePost /> },
-      { path: "login", element: <LoginPage /> },
+      { path: "login", element: <Login /> },
       { path: "register", element: <RegisterPage /> },
       {
         path: "dashboard",
