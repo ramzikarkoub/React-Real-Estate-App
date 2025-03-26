@@ -66,7 +66,7 @@ export default function Nav() {
       </div>
 
       {/*  Hamburger Menu Toggle */}
-      <div className="hamburger" onClick={toggleMenu}>
+      <div className="hamburger" onClick={toggleMenu} data-testid="hamburger">
         {showMenu ? <FaTimes /> : <FaBars />}
       </div>
 

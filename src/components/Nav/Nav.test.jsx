@@ -1,4 +1,5 @@
 jest.mock("../../api/apiRequest");
+
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import Nav from "./Nav";
@@ -28,7 +29,7 @@ describe("Nav", () => {
 
     expect(screen.getAllByText(/login/i)).toHaveLength(2);
     expect(screen.getAllByText(/register/i)).toHaveLength(2);
-    expect(screen.queryAllByText(/dashboard/i)).toHaveLength(0); // for logged-out test
+    expect(screen.queryAllByText(/dashboard/i)).toHaveLength(0);
     expect(screen.queryAllByText(/logout/i)).toHaveLength(0);
   });
 
@@ -51,5 +52,18 @@ describe("Nav", () => {
 
     fireEvent.click(screen.getAllByText(/logout/i)[0]);
     expect(mockLogout).toHaveBeenCalled();
+  });
+
+  it("toggles mobile menu on hamburger click and closes on link click", () => {
+    renderNavWithUser();
+
+    const hamburger = screen.getByTestId("hamburger");
+    fireEvent.click(hamburger);
+
+    const mobileMenu = screen.getAllByText("Home")[1].closest(".mobile-menu");
+    expect(mobileMenu).toHaveClass("active");
+
+    fireEvent.click(screen.getAllByText("Rent")[1]);
+    expect(mobileMenu).not.toHaveClass("active");
   });
 });
