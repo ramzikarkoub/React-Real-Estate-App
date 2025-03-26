@@ -15,7 +15,7 @@ jest.mock("../../api/apiRequest", () => ({
 
 // Mock subcomponents
 jest.mock(
-  "../../components/PostItem/PostItem",
+  "../../components/postItem/PostItem",
   () =>
     ({ post, onEdit, onDelete }) =>
       (
@@ -32,7 +32,7 @@ jest.mock("../../components/Modal/Modal", () => ({ children }) => (
 ));
 
 jest.mock(
-  "../../components/postForm/PostForm",
+  "../../components/PostForm/PostForm",
   () =>
     ({ onSubmit, onClose }) =>
       (

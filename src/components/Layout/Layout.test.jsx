@@ -14,12 +14,11 @@ import { MemoryRouter, Route, Routes } from "react-router-dom";
 import Layout from "./Layout";
 import PostContext from "../../context/PostContext";
 import UserContext from "../../context/UserContext";
-import SearchBar from "../SearchBar/SearchBar";
 
 // Mock components
 jest.mock("../Nav/Nav", () => () => <nav>Mock Nav</nav>);
 jest.mock("../Footer/Footer", () => () => <footer>Mock Footer</footer>);
-jest.mock("../SearchBar/SearchBar", () => ({ onSearch }) => (
+jest.mock("../SearchBar/SearchBar.jsx", () => ({ onSearch }) => (
   <div>Mock SearchBar</div>
 ));
 
