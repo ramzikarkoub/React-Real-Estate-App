@@ -1,7 +1,7 @@
 import React, { useContext, useMemo } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import Footer from "../footer/Footer";
-import SearchBar from "../searchBar/SearchBar";
+import SearchBar from "../SearchBar/SearchBar";
 import PostContext from "../../context/PostContext";
 import UserContext from "../../context/UserContext";
 import Nav from "../Nav/Nav.jsx";
