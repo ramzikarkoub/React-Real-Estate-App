@@ -1,6 +1,6 @@
 import React, { useContext, useMemo } from "react";
 import { Outlet, useLocation } from "react-router-dom";
-import Footer from "../footer/Footer";
+import Footer from "../Footer/Footer";
 import SearchBar from "../SearchBar/SearchBar.jsx";
 import PostContext from "../../context/PostContext";
 import UserContext from "../../context/UserContext";
