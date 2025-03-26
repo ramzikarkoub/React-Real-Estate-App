@@ -3,9 +3,9 @@ import UserContext from "../../context/UserContext";
 import PostContext from "../../context/PostContext";
 import PostItem from "../../components/PostItem/PostItem";
 import Modal from "../../components/Modal/Modal";
-import PostForm from "../../components/PostForm/PostForm";
 import "./Dashboard.css";
 import Button from "../../components/Button/Button";
+import PostForm from "../../components/PostForm/PostForm";
 
 export default function Dashboard() {
   const { user, userPosts, fetchUserPosts } = useContext(UserContext);

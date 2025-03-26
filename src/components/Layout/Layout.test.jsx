@@ -14,6 +14,7 @@ import { MemoryRouter, Route, Routes } from "react-router-dom";
 import Layout from "./Layout";
 import PostContext from "../../context/PostContext";
 import UserContext from "../../context/UserContext";
+import SearchBar from "../SearchBar/SearchBar";
 
 // Mock components
 jest.mock("../Nav/Nav", () => () => <nav>Mock Nav</nav>);
