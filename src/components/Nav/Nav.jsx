@@ -58,7 +58,7 @@ export default function Nav() {
                 {user?.username
                   ? user.username.charAt(0).toUpperCase() +
                     user.username.slice(1)
-                  : "Guest"}
+                  : "User"}
               </p>
               <Link onClick={logout} className="logout-button">
                 Logout
