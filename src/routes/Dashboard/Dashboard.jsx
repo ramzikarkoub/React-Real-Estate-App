@@ -48,8 +48,9 @@ export default function Dashboard() {
     <div className="dashboard">
       <div className="listing-header">
         <h1>
-          {user?.username.charAt(0).toUpperCase() + user.username.slice(1)}'s
-          Listings
+          {(user?.username
+            ? user.username.charAt(0).toUpperCase() + user.username.slice(1)
+            : "User") + "'s Listings"}
         </h1>
         <Button color="green" onClick={handleAdd}>
           + Add Listing
