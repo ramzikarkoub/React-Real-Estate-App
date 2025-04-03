@@ -34,6 +34,9 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+  useEffect(() => {
+    console.log("API URL:", import.meta.env.VITE_API_URL);
+  }, []);
   return <RouterProvider router={router} />;
 }
 
