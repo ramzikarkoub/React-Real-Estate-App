@@ -55,7 +55,10 @@ export default function Nav() {
             <div className="welcome">
               <p>
                 Welcome{" "}
-                {user.username.charAt(0).toUpperCase() + user.username.slice(1)}
+                {user?.username
+                  ? user.username.charAt(0).toUpperCase() +
+                    user.username.slice(1)
+                  : "User"}
               </p>
               <Link onClick={logout} className="logout-button">
                 Logout

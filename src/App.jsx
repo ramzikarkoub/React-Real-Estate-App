@@ -9,6 +9,7 @@ import Login from "./routes/Login/Login";
 import RegisterPage from "./routes/Register/Register";
 import BuyPage from "./routes/BuyPage/BuyPage";
 import SinglePost from "../src/routes/SinglePost/SinglePost";
+import { useEffect } from "react";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,9 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+  useEffect(() => {
+    console.log("API URL:", import.meta.env.VITE_API_URL);
+  }, []);
   return <RouterProvider router={router} />;
 }
 
